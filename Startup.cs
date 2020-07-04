@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MvcMovie.Data;
 using Microsoft.EntityFrameworkCore;
+using myFilms.Data;
 namespace myFilms
 {
     public class Startup
@@ -27,6 +28,9 @@ namespace myFilms
 
             services.AddDbContext<MvcMovieContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
+
+            services.AddDbContext<myFilmsContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("myFilmsContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
